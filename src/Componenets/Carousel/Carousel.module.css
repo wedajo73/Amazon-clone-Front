@@ -1,0 +1,13 @@
+.hero_img{
+    position: relative;
+}
+.hero_img::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(to bottom,black,white
+    );
+
+}

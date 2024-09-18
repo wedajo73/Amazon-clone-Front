@@ -1,0 +1,16 @@
+
+Icon install in the tool 
+
+npm i @mui/icons-material
+npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+to rotate the image 
+npm i react-responsive-carousel-vfix
+Fake store Api
+npm i react-router-dom
+npm install react-spinners --save
+npm install @emotion/styled @emotion/react
+
+npm install react-currency-format --save --force
+npm install gh-pages --save-dev --force
+
+
