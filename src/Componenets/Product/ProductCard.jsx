@@ -28,18 +28,19 @@ function ProductCard({ product, flex, renderDes,renderAdd }) {
 
   return (
     <div
-      className={`${classes.card__container} ${
-        flex ? classes.product_flexed : "" }`}
-    >
       
+       className={`${classes.card__container} ${
+        flex ? classes.product_flexed : ""
+      }`}
+    >
+      {/* style={{ flexDirection: "column" }} */}
       <Link to={`/products/${id}`}>
         <img src={image} alt={title} className={classes.img_container} />
       </Link>
 
       <div className={classes.info}>
         <h3 className={classes.title}>{title}</h3>
-        {renderDes && <div>
-            {description}</div>}
+        {renderDes && <div>{description}</div>}
         <div className={classes.rating}>
           <Rating value={rating?.rate} precision={0.1} readOnly />
           <small>({rating?.count})</small>
@@ -53,13 +54,11 @@ function ProductCard({ product, flex, renderDes,renderAdd }) {
             renderText={(value) => <p>{value}</p>}
           />
         </div>
-        {
-        renderAdd &&
-        <button className={classes.button} onClick={addToCart}>
-          Add to Cart
-        </button>
-        }
-        
+        {renderAdd && (
+          <button className={classes.button} onClick={addToCart}>
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );

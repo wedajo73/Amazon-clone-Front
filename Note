@@ -12,5 +12,7 @@ npm install @emotion/styled @emotion/react
 
 npm install react-currency-format --save --force
 npm install gh-pages --save-dev --force
-
+git remote add origin https://github.com/kbtsegish/Amazon-2024-clone.git
+git branch -M main
+git push -u origin main
 

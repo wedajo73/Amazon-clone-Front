@@ -27,11 +27,13 @@ function Product() {
         <Loader /> // Show loader while data is being fetched
       ) : (
         <section className={classes.Product_container}>
+          
           {products?.map((singleProduct) => (
             <ProductCard
               renderAdd={true}
               product={singleProduct}
               key={singleProduct.id}
+              flex={false}
             />
           ))}
         </section>

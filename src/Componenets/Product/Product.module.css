@@ -5,6 +5,9 @@
   gap: 2px; /* Space between products */
   justify-content: center;
   border: 1px solid #ccc; /* For visual debugging */
+  padding-top: 15px;
+  /* background-color: red; */
+  
 }
 
 /* Card container */
@@ -13,14 +16,15 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  margin:60px;
+  margin:10px;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: center;
   background-color: #fff;
+  /* background-color: red; */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-   width: 300px; /* Adjust width as needed */
-  height: 250px; /* Adjust height as needed */
+   width: 250px; /* Adjust width as needed */
+  height: auto; /* Adjust height as needed */
 }
 
 /* Hover effect for card */
@@ -37,6 +41,7 @@
   object-fit: cover;
   margin-bottom: 16px;
   transition: transform 0.3s ease;
+  /* background-color: red; */
 }
 
 .img_container:hover {
@@ -93,12 +98,17 @@
 /* Flexed product card layout */
 .product_flexed {
   display: flex;
-  gap: 5px;
+  gap: 10px;
+  margin-top: 40px;
+ padding-top: 30px;
   align-items: center;
   justify-content:first baseline;
   width: 100%;
-  padding: 16px;
+  flex-direction: row;
+  padding: 10px;
+  height: auto;
   background-color: #f9f9f9;
+  /* background-color: #b12704; */
   border-radius: 8px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -119,6 +129,7 @@
   height: auto;
   border-radius: 4px;
   transition: transform 0.3s ease;
+  /* background-color: red; */
 }
 
 .product_flexed img:hover {
@@ -130,6 +141,7 @@
   align-items: center;
   align-content: center;
   gap: 5px;
+  margin-top: 10px;
 }
 
 .product_flexed .price {
@@ -137,6 +149,7 @@
   color: #b12704;
   font-weight: bold;
   margin-top: 10px;
+  
 }
 
 .product_flexed .button {

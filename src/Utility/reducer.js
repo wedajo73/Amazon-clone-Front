@@ -8,6 +8,7 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case Type.ADD_TO_BASKET:
       // Check if the item already exists in the basket
+      // eslint-disable-next-line no-case-declarations
       const existingItem = state.basket.find(
         (item) => item.id === action.item.id
       );
@@ -33,7 +34,9 @@ export const reducer = (state, action) => {
       }
 
     case Type.REMOVE_FROM_BASKET:
+      // eslint-disable-next-line no-case-declarations
       const index = state.basket.findIndex((item) => item.id === action.id);
+      // eslint-disable-next-line no-case-declarations
       let newBasket = [...state.basket];
 
       if (index !== -1) {
