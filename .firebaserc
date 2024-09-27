@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "clone-f7bfb",
+    "Amazon-clone": "clone-f7bfb"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

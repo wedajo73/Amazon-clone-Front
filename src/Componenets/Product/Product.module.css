@@ -51,6 +51,7 @@
 /* Info Section */
 .info {
   text-align: center;
+  align-items: baseline;
 }
 
 .title {
@@ -63,6 +64,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 8px;
+  justify-content: center;
 }
 
 .price {
@@ -70,6 +72,7 @@
   font-weight: bold;
   color: #b12704; /* Amazon-style red for price */
   margin-bottom: 16px;
+  align-content: center;
 }
 
 /* Button Styles */

@@ -70,8 +70,8 @@
 
 .search select {
   border: none;
-  padding: 10px;
-  background-color: #f3f3f3;
+  padding: 12.25px;
+  background-color: #f3f1f1;
   font-size: 14px;
   flex: 0.2;
   border-right: none;
@@ -82,7 +82,7 @@
   border: none;
   width: 100%;
   padding: 10px;
-  background-color: white;
+  background-color: rgb(252, 247, 247);
   font-size: 16px;
   flex-grow: 1;
   border-radius: 0; /* No rounded edges for input */
@@ -93,9 +93,9 @@
   background: #febd69;
   color: #131921;
   cursor: pointer;
-  border-radius: 0; /* No rounded edges for the search icon */
+  border-radius: 0;/*  No rounded edges for the search icon */
   border: none;
-  height: 100%; /* Full height to fit the search bar */
+  height: 100%;/*  Full height to fit the search bar */
   width: 45px; /* Same width as before for better visibility */
 }
 

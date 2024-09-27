@@ -25,3 +25,25 @@
 .carousel .control-dots {
     display: none; /* Hides the default indicator dots */
 }
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero_img {
+        height: 300px; /* Reduce height on smaller screens */
+    }
+
+    .hero_img::before {
+        height: 200px; /* Adjust overlay height */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero_img {
+        height: 150px; /* Further reduce height on very small screens */
+    }
+
+    .hero_img::before {
+        height: 100px; /* Further adjust overlay height */
+    }
+}

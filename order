@@ -9,10 +9,9 @@ import { axiosInstance } from "../../api/axios";
 import { GridLoader } from "react-spinners";
 import { db } from "../../Utility/firebase";
 import { useNavigate } from "react-router-dom";
-import { Type } from "../../Utility/action.types";
 
 function Payment() {
-  const [{ user, basket }, dispatch] = useContext(DataContext);
+  const [{ user, basket }] = useContext(DataContext);
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -35,7 +34,7 @@ function Payment() {
     }
   };
 
-  const handlePayment = async (e) => {
+  const handlepayment = async (e) => {
     e.preventDefault();
 
     if (!stripe || !elements) {
@@ -52,24 +51,19 @@ function Payment() {
       });
 
       const clientSecret = response.data.clientSecret;
-      if (!clientSecret) {
-        throw new Error("Failed to get clientSecret");
-      }
 
       // Confirm card payment using Stripe
-      const { error: stripeError, paymentIntent } =
-        await stripe.confirmCardPayment(clientSecret, {
-          payment_method: {
-            card: elements.getElement(CardElement),
-          },
-        });
+      const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      });
 
       if (stripeError) {
-        console.error("Payment error:", stripeError);
         setError(`Payment failed: ${stripeError.message}`);
       } else {
-        console.log("Payment successful", paymentIntent);
         setError(null);
+        console.log("Payment successful", paymentIntent);
 
         // Save order in Firestore
         await db
@@ -83,15 +77,11 @@ function Payment() {
             created: paymentIntent.created,
           });
 
-        // empty basket
-
-        dispatch({ type: Type.EMPTY_BASKET });
-
         // Redirect to orders page after successful payment
         navigate("/order", { state: { msg: "You have placed a new order" } });
       }
     } catch (error) {
-      console.error("Payment failed:", error);
+      console.error("Payment failed", error);
       setError("Something went wrong with the payment. Please try again.");
     } finally {
       setProcessing(false); // Re-enable button after processing
@@ -111,21 +101,20 @@ function Payment() {
           <div>
             <div>{user?.email}</div>
             <div>123 React Lane</div>
-            <div>Las vegas Nevada</div>
+            <div>Addis Abeba, Bole</div>
           </div>
         </div>
         <hr />
 
         {/* Product */}
-        <div className={classes.flex}>
+        <div>
           <h3>Review Items and Delivery</h3>
           <div>
             {basket?.map((item) => (
-              <ProductCard product={item} flex={true} key={item.id} />
+              <ProductCard key={item.id} product={item} flex={true} />
             ))}
           </div>
         </div>
-
         <hr />
 
         {/* Payment form */}
@@ -134,7 +123,7 @@ function Payment() {
 
           <div className={classes.Payment_card_container}>
             <div className={classes.Payment__details}>
-              <form onSubmit={handlePayment}>
+              <form onSubmit={handlepayment}>
                 {/* Error display */}
                 {error && <small style={{ color: "red" }}>{error}</small>}
 
@@ -148,11 +137,14 @@ function Payment() {
                       <p>Total Order | </p> <CurrencyFormat amount={total} />
                     </span>
                   </div>
-                  <button type="submit">
+                  <button
+                    type="submit"
+                    disabled={processing || !stripe || !elements}
+                  >
                     {processing ? (
                       <div className={classes.loader}>
                         <GridLoader color="grey" size={12} />
-                        <p>Processing...</p>
+                        <p> processing ... </p>
                       </div>
                     ) : (
                       "Pay Now"

@@ -28,8 +28,7 @@ function ProductCard({ product, flex, renderDes,renderAdd }) {
 
   return (
     <div
-      
-       className={`${classes.card__container} ${
+      className={`${classes.card__container} ${
         flex ? classes.product_flexed : ""
       }`}
     >
@@ -40,18 +39,18 @@ function ProductCard({ product, flex, renderDes,renderAdd }) {
 
       <div className={classes.info}>
         <h3 className={classes.title}>{title}</h3>
-        {renderDes && <div>{description}</div>}
+        {renderDes && <div style={{ maxWidth: "750px" }}>{description}</div>}
         <div className={classes.rating}>
           <Rating value={rating?.rate} precision={0.1} readOnly />
           <small>({rating?.count})</small>
         </div>
-        <div className={classes.price}>
+        <div   className={classes.price}>
           <CurrencyFormat
             value={price}
             displayType={"text"}
-            thousandSeparator={true}
+            thousandSeparator={false}
             prefix={"$"}
-            renderText={(value) => <p>{value}</p>}
+            // renderText={(value) => <p>{value}</p>}
           />
         </div>
         {renderAdd && (

@@ -1,7 +1,7 @@
 .category {
-  height: 275px;
-  width: 275px;
-  /* background-color: white; */
+  height: 290px;
+  width: 290px;
+  background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
  
 }
@@ -26,14 +26,18 @@
 .category p {
   font-size: 16px;
   font-weight: bold;
-  color: rgb(245, 8, 20);
+  color: rgb(3, 170, 248);
   /* background-color: red; */
 }
 .Category__container {
   position: relative;
   margin-top: -10%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(290px,1fr));
   place-items: center;
+  max-width: 1600px;
+  align-content: center;
+  gap: 40px;
+  padding-left: 30px;
   /* background-color: red; */
 }
